@@ -1,9 +1,9 @@
 {
   "name": "sepia",
-  "version": "0.5.0",
-  "description": "De-AI writing package with the general Sepia router plus four separate operation entries: write, review, refactor, and recreate.",
+  "version": "0.6.0",
+  "description": "Voice-preserving multilingual writing package for Japanese, English, and Spanish, with the Sepia router plus write, review, refactor, and recreate entries.",
   "skills": "./skills/",
   "license": "MIT",
-  "repository": "https://github.com/Nanako0129/sepia",
-  "homepage": "https://github.com/Nanako0129/sepia"
+  "repository": "https://github.com/OPP-studio-macchino/sepia-trilingual",
+  "homepage": "https://github.com/OPP-studio-macchino/sepia-trilingual"
 }

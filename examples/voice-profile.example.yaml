@@ -1,0 +1,42 @@
+# Copy this file, replace only the values you know, and explicitly give the
+# resulting file to Sepia. Sepia must never auto-discover or auto-load it.
+sepia_voice_profile:
+  schema_version: "1.0"
+  profile_name: "replace-with-a-name"
+  applies_to:
+    languages: ["ja-JP", "en", "es"]
+    venues: ["social", "technical", "general"]
+  language:
+    output: "preserve"
+    locale: "preserve"
+    translation: "explicit-only"
+  relationship:
+    person: "preserve"
+    self_reference: "preserve"
+    address_form: "preserve"
+    formality: "preserve"
+    politeness: "preserve"
+  rhythm:
+    sentence_length: "preserve"
+    paragraph_length: "preserve"
+    fragments: "preserve"
+    connectives: "preserve"
+  voice:
+    directness: "preserve"
+    certainty: "preserve"
+    emotional_temperature: "preserve"
+    humor: "observed-only"
+    emoji: "observed-only"
+  lexicon:
+    prefer: []
+    avoid: []
+    preserve_exact: []
+  anchors:
+    preserve_phrases: []
+    preserve_patterns: []
+  prohibited_shifts:
+    - "corporate-marketing tone"
+    - "invented personal experience"
+  samples:
+    positive: []
+    negative: []

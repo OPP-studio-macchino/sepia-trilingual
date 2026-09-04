@@ -4,21 +4,13 @@ name: behavioral eval
 # prompt run in an isolated session with only this plugin loaded, scored by its
 # graders, plus a no-plugin baseline arm for the score delta.
 #
-# Push-to-main only (plus manual dispatch): the run spends the maintainer's
-# Claude subscription quota via CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`),
-# so it must never trigger on fork PRs. CLAUDE_CODE_WALNUT_SPIRE enables the
+# Manual dispatch only: the run spends the maintainer's Claude subscription
+# quota via CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`).
+# CLAUDE_CODE_WALNUT_SPIRE enables the
 # early-access `plugin eval` command on machines that cannot receive the
 # per-organization rollout — CI runners are its documented audience.
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - skills/**
-      - evals/**
-      - plugin.json
-      - .claude-plugin/**
-      - .github/workflows/behavioral-eval.yml
   workflow_dispatch:
 
 permissions:

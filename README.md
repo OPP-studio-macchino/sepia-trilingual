@@ -1,12 +1,32 @@
-# sepia
+# Sepia Trilingual
 
-**English** | [繁體中文](README.zh-TW.md) | [简体中文](README.zh-CN.md)
+**English** | [日本語](README.ja.md) | [Español](README.es.md) | [繁體中文](README.zh-TW.md) | [简体中文](README.zh-CN.md)
 
-[![behavioral eval](https://github.com/Nanako0129/sepia/actions/workflows/behavioral-eval.yml/badge.svg)](https://github.com/Nanako0129/sepia/actions/workflows/behavioral-eval.yml) [![version consistency](https://github.com/Nanako0129/sepia/actions/workflows/version-consistency.yml/badge.svg)](https://github.com/Nanako0129/sepia/actions/workflows/version-consistency.yml) [![release](https://img.shields.io/github/v/release/Nanako0129/sepia)](https://github.com/Nanako0129/sepia/releases/latest) [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![behavioral eval](https://github.com/OPP-studio-macchino/sepia-trilingual/actions/workflows/behavioral-eval.yml/badge.svg)](https://github.com/OPP-studio-macchino/sepia-trilingual/actions/workflows/behavioral-eval.yml) [![version consistency](https://github.com/OPP-studio-macchino/sepia-trilingual/actions/workflows/version-consistency.yml/badge.svg)](https://github.com/OPP-studio-macchino/sepia-trilingual/actions/workflows/version-consistency.yml) [![release](https://img.shields.io/github/v/release/OPP-studio-macchino/sepia-trilingual)](https://github.com/OPP-studio-macchino/sepia-trilingual/releases/latest) [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 > De-AI writing at the layer that actually gives AI away. Fiction gets its narrative architecture repaired before anyone touches word choice; professional documents (release notes, PR replies, postmortems, tickets, technical articles) each get rules matched to their venue.
 
-A portable [Agent Skill](https://agentskills.io/specification): any agent that speaks the standard can load it, and the [Skills CLI](https://skills.sh), which supports 77+ agents, installs it with one command. Claude Code, Codex, Grok Build, and Antigravity additionally get native plugin packaging, install-verified on all four. One canonical `SKILL.md`, no per-platform forks. Four operations: **write**, **review** (diagnose only), **refactor** (minimal edits), **recreate** (full rewrite).
+Sepia Trilingual is an independent derivative of [Sepia by Nanako Tsai](https://github.com/Nanako0129/sepia), not an official upstream release. It is not endorsed, maintained, or approved by the upstream author.
+
+A portable [Agent Skill](https://agentskills.io/specification): any agent that speaks the standard can load it, and the [Skills CLI](https://skills.sh), which supports 77+ agents, installs it with one command. Claude Code, Codex, Grok Build, and Antigravity additionally get native plugin packaging. One canonical `SKILL.md`, no per-platform forks. Four operations: **write**, **review** (diagnose only), **refactor** (minimal edits), **recreate** (full rewrite).
+
+## Trilingual voice-preserving extension
+
+This fork adds first-class Japanese (`ja-JP`), English, and Spanish routing.
+It preserves author voice, register, locale, treatment, facts, quotations,
+code, and identifiers before applying document-specific edits. It does not
+add synthetic mistakes or invented personal details, and it does not promise
+AI-detector evasion.
+
+The governing rule is: **make the author easier to understand without making
+them sound like someone else.** A user-owned profile can be supplied from
+[`examples/voice-profile.example.yaml`](examples/voice-profile.example.yaml);
+Sepia never discovers or loads one automatically. See
+[`README.ja.md`](README.ja.md), [`README.es.md`](README.es.md), and
+[`ATTRIBUTION.md`](ATTRIBUTION.md).
+
+Derived from [https://github.com/Nanako0129/sepia](https://github.com/Nanako0129/sepia) at
+`0326635aa2cee589e6f525af1ec6089d51944f3c` under the MIT License.
 
 ## Why another humanizer
 
@@ -60,20 +80,20 @@ Every command below is written for **user scope** — install once, use it in ev
 ### Any agent (Skills CLI, 77+ agents)
 
 ```bash
-npx skills add Nanako0129/sepia -g     # -g = user scope; the default is project
+npx skills add OPP-studio-macchino/sepia-trilingual -g     # -g = user scope; the default is project
 npx skills update sepia -g             # update
 npx skills remove sepia -g             # uninstall
 ```
 
 Installs on every agent the [Skills CLI](https://skills.sh) supports — Cursor, Cline, Windsurf, Copilot, OpenCode, goose, and more. Pick your agents when prompted. Runtime behavior outside the four platforms below has not been exercised by us; the skill is plain markdown under the Agent Skills standard, so file an issue if your agent trips on it.
 
-The four platforms below have native plugin installers, each exercised with a live install. Verified means the install completes and the sepia entries appear; runtime behavior is as noted above.
+The four platforms below have native plugin installers. The Codex package was installed from this repository and reported Sepia `0.6.0`; the other native installers were not rerun for this release.
 
 ### Claude Code
 
 ```bash
 # install
-claude plugin marketplace add Nanako0129/sepia
+claude plugin marketplace add OPP-studio-macchino/sepia-trilingual
 claude plugin install sepia@sepia --scope user
 
 # update
@@ -87,7 +107,7 @@ The in-session `/plugin install` dialog asks you to pick a scope — choose **Us
 
 ```bash
 # install
-codex plugin marketplace add Nanako0129/sepia
+codex plugin marketplace add OPP-studio-macchino/sepia-trilingual
 codex plugin add sepia@sepia
 
 # update — refresh the marketplace snapshot, then re-add to pick up the new version
@@ -99,7 +119,7 @@ codex plugin add sepia@sepia
 
 ```bash
 # install
-grok plugin install Nanako0129/sepia --trust
+grok plugin install OPP-studio-macchino/sepia-trilingual --trust
 
 # update
 grok plugin update
@@ -111,7 +131,7 @@ Grok also auto-discovers a Claude Code install of sepia if you have one; either 
 
 ```bash
 # install directly from GitHub
-agy plugin install https://github.com/Nanako0129/sepia
+agy plugin install https://github.com/OPP-studio-macchino/sepia-trilingual
 ```
 
 ### Project scope (alternative)
@@ -154,16 +174,6 @@ sepia/
 ├── .agents/                 # Codex/Antigravity workspace-mode discovery + Antigravity workflow
 └── research/                # digested evidence base with sources
 ```
-
-## Star History
-
-<a href="https://www.star-history.com/?repos=nanako0129%2Fsepia&type=date&legend=top-left">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=nanako0129%2Fsepia&type=date&theme=dark&legend=top-left&sealed_token=tvzQmDPYfGPfGtBVAmiPEqqGYMMK8T1SUMAXlEaJL1B2Me9ZcXDPNjPj0qV3TVzyz-_uYj4Xh25L3X81y9pimzDevwlWTlJQKZr38HogEqXFAPRbtrv8NFnNCrguM2lvqNG5_DS_1W_8rttYAiJEOaGd1onyFf4NYmmQPGoHuwTyhiJDPdmiYOL3AOKK">
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=nanako0129%2Fsepia&type=date&legend=top-left&sealed_token=tvzQmDPYfGPfGtBVAmiPEqqGYMMK8T1SUMAXlEaJL1B2Me9ZcXDPNjPj0qV3TVzyz-_uYj4Xh25L3X81y9pimzDevwlWTlJQKZr38HogEqXFAPRbtrv8NFnNCrguM2lvqNG5_DS_1W_8rttYAiJEOaGd1onyFf4NYmmQPGoHuwTyhiJDPdmiYOL3AOKK">
-    <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=nanako0129%2Fsepia&type=date&legend=top-left&sealed_token=tvzQmDPYfGPfGtBVAmiPEqqGYMMK8T1SUMAXlEaJL1B2Me9ZcXDPNjPj0qV3TVzyz-_uYj4Xh25L3X81y9pimzDevwlWTlJQKZr38HogEqXFAPRbtrv8NFnNCrguM2lvqNG5_DS_1W_8rttYAiJEOaGd1onyFf4NYmmQPGoHuwTyhiJDPdmiYOL3AOKK">
-  </picture>
-</a>
 
 ## Sources
 

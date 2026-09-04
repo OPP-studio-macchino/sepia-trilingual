@@ -1,0 +1,242 @@
+[
+  {
+    "id": "ja-write-no-fabricated-persona",
+    "language": "ja-JP",
+    "operation": "write",
+    "input": "初心者向けに、ラリーのペースノートとは何かを200字で説明する。個人的な体験は与えられていない。",
+    "must_preserve": [
+      "初心者向け",
+      "ラリー",
+      "ペースノート",
+      "200字"
+    ],
+    "expected_findings": [
+      "個人的な声の証拠なし",
+      "媒体に合う控えめな標準文体"
+    ],
+    "forbidden_changes": [
+      "偽のラリー経験",
+      "架空の人物像",
+      "根拠のない数値"
+    ]
+  },
+  {
+    "id": "ja-refactor-connective-cluster",
+    "language": "ja-JP",
+    "operation": "refactor",
+    "input": "また、本機能は利便性を向上させます。さらに、効率性も向上させることができます。また、ユーザー体験の改善にもつながります。",
+    "must_preserve": [
+      "本機能",
+      "利便性",
+      "効率性",
+      "ユーザー体験"
+    ],
+    "expected_findings": [
+      "接続詞の反復",
+      "抽象的な効果",
+      "することができます"
+    ],
+    "forbidden_changes": [
+      "新しい数値の追加",
+      "体験談の追加",
+      "常体への無断変更"
+    ]
+  },
+  {
+    "id": "ja-preserve-casual-voice",
+    "language": "ja-JP",
+    "operation": "review",
+    "input": "これ、かなり使えると思う。でも俺ならここは変える。",
+    "must_preserve": [
+      "これ",
+      "俺",
+      "でも"
+    ],
+    "expected_findings": [],
+    "forbidden_changes": [
+      "私は有用だと考えますへの変換",
+      "敬語化",
+      "段落追加"
+    ]
+  },
+  {
+    "id": "ja-preserve-code-and-facts",
+    "language": "ja-JP",
+    "operation": "recreate",
+    "input": "commit 6a2db0d4c394cdf67020ff732a89710a2e46968e で `npm run build` はPASS。変更は3ファイルです。",
+    "must_preserve": [
+      "6a2db0d4c394cdf67020ff732a89710a2e46968e",
+      "`npm run build`",
+      "PASS",
+      "3ファイル"
+    ],
+    "expected_findings": [],
+    "forbidden_changes": [
+      "SHA短縮",
+      "ファイル数変更",
+      "コマンド翻訳"
+    ]
+  },
+  {
+    "id": "en-preserve-gb-locale",
+    "language": "en-GB",
+    "operation": "refactor",
+    "input": "The colour settings were reorganised, but the behaviour did not change.",
+    "must_preserve": [
+      "colour",
+      "reorganised",
+      "behaviour"
+    ],
+    "expected_findings": [],
+    "forbidden_changes": [
+      "color",
+      "reorganized",
+      "behavior"
+    ]
+  },
+  {
+    "id": "en-review-empty-uplift-cluster",
+    "language": "en-US",
+    "operation": "review",
+    "input": "Moreover, this robust solution seamlessly enhances the user experience. Furthermore, it delivers a transformative and powerful workflow.",
+    "must_preserve": [
+      "user experience",
+      "workflow"
+    ],
+    "expected_findings": [
+      "repeated signposting",
+      "unsupported uplift",
+      "generic benefits"
+    ],
+    "forbidden_changes": [
+      "editing during review",
+      "invented benchmark"
+    ]
+  },
+  {
+    "id": "en-preserve-formal-register",
+    "language": "en-US",
+    "operation": "refactor",
+    "input": "The applicant shall submit the signed form no later than 17:00 on 4 September 2026.",
+    "must_preserve": [
+      "shall",
+      "17:00",
+      "4 September 2026"
+    ],
+    "expected_findings": [],
+    "forbidden_changes": [
+      "casual contractions",
+      "deadline change",
+      "first-person anecdote"
+    ]
+  },
+  {
+    "id": "es-preserve-voseo",
+    "language": "es-AR",
+    "operation": "refactor",
+    "input": "Si vos querés, podés revisar el cambio antes de publicarlo.",
+    "must_preserve": [
+      "vos",
+      "querés",
+      "podés"
+    ],
+    "expected_findings": [],
+    "forbidden_changes": [
+      "tú quieres",
+      "usted puede",
+      "vosotros"
+    ]
+  },
+  {
+    "id": "es-preserve-usted",
+    "language": "es-MX",
+    "operation": "recreate",
+    "input": "Por favor, confirme si usted recibió el mensaje antes de las 14:30.",
+    "must_preserve": [
+      "usted",
+      "14:30",
+      "confirme"
+    ],
+    "expected_findings": [],
+    "forbidden_changes": [
+      "tú",
+      "vos",
+      "cambio de hora"
+    ]
+  },
+  {
+    "id": "es-review-discourse-cluster",
+    "language": "es-ES",
+    "operation": "review",
+    "input": "Además, cabe destacar que la solución es robusta. Asimismo, es importante señalar que mejora significativamente la experiencia. En conclusión, ofrece múltiples beneficios.",
+    "must_preserve": [
+      "solución",
+      "experiencia",
+      "beneficios"
+    ],
+    "expected_findings": [
+      "marcadores repetidos",
+      "encuadre vacío",
+      "beneficios genéricos"
+    ],
+    "forbidden_changes": [
+      "edición durante review",
+      "datos inventados"
+    ]
+  },
+  {
+    "id": "es-preserve-paired-punctuation",
+    "language": "es-419",
+    "operation": "refactor",
+    "input": "¿Ya verificaste el cambio? ¡Perfecto!",
+    "must_preserve": [
+      "¿",
+      "?",
+      "¡",
+      "!"
+    ],
+    "expected_findings": [],
+    "forbidden_changes": [
+      "eliminar signos de apertura",
+      "añadir jerga regional"
+    ]
+  },
+  {
+    "id": "mixed-preserve-technical-segments",
+    "language": "mixed-ja-en",
+    "operation": "refactor",
+    "input": "`GPS READY ±5m` が表示されたらStart Recceを押します。Do not translate the UI labels.",
+    "must_preserve": [
+      "`GPS READY ±5m`",
+      "Start Recce",
+      "Do not translate the UI labels."
+    ],
+    "expected_findings": [],
+    "forbidden_changes": [
+      "UIラベルの翻訳",
+      "±5mの変更"
+    ]
+  },
+  {
+    "id": "ja-explicit-profile-preserve-author-voice",
+    "language": "ja-JP",
+    "operation": "refactor",
+    "input": "明示Voice Profile: self_reference=俺、formality=casual、avoid=企業広告調。対象文: 俺はこれ、かなり使えると思う。ただ、料金はちょっと気になる。",
+    "must_preserve": [
+      "俺",
+      "かなり使えると思う",
+      "料金はちょっと気になる",
+      "casual register"
+    ],
+    "expected_findings": [
+      "No material clarity defect requires a voice-changing rewrite",
+      "Explicit profile confirms the source's self-reference and casual register"
+    ],
+    "forbidden_changes": [
+      "私",
+      "本機能は非常に有用です",
+      "料金面が最大の懸念事項です",
+      "formal register"
+    ]
+  }
+]

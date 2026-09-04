@@ -1,4 +1,4 @@
 {
   "name": "sepia",
-  "description": "De-AI writing package with the general Sepia router plus four separate operation entries: write, review, refactor, and recreate."
+  "description": "Voice-preserving Japanese, English, and Spanish writing package with the general Sepia router plus write, review, refactor, and recreate entries."
 }

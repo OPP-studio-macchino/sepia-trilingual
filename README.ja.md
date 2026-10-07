@@ -57,6 +57,10 @@ lexicon:
 
 このファイルは自動探索しません。使用するときだけ対象ファイルを明示してください。現在の依頼、事実、引用、コード、安全上の制約を上書きすることもできません。完全な仕様は`skills/sepia/references/voice-profile-config.md`にあります。
 
+## MCP連携（任意）
+
+[読み取り専用MCPの導入手順](sepia_mcp/README.md)を用意しました。既存のSepiaのルールを接続先AIへ渡します。MCP側は文章を受け取らず、編集も行いません。ChatGPT WebではHTTPS接続や安全なトンネルが必要です。
+
 ## インストール
 
 リポジトリ公開後のCodex向けコマンド：

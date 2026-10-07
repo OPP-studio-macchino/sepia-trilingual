@@ -73,6 +73,8 @@ Since v0.4.0, sepia defines an interface for stacking a voice or style skill on 
 
 The contract in short: sepia's architecture decisions come first, and the voice's moves are applied selectively (3–5 signature moves per piece, formula endings deliberately broken sometimes). Review reports the voice's known costs instead of fixing them away, while uniformity findings keep full strength: a voice does not excuse a metronome. On professional routes the venue still sets the register, and direct conflicts come back to you. The interface is grounded in one blind review experiment on a strict-minimalism specimen — a worked example, not measured evidence.
 
+**Optional MCP:** [Sepia read-only MCP bridge](sepia_mcp/README.md) serves the same JA/EN/ES rules to MCP clients. The server does not receive drafts, invoke an LLM, or edit by itself. ChatGPT Web requires a remote HTTPS endpoint or supported secure tunnel.
+
 ## Install
 
 Every command below is written for **user scope** — install once, use it in every project.

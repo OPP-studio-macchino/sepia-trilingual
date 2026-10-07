@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sepia Trilingual icon">
+  <rect width="512" height="512" rx="106" fill="#573329"/>
+  <path d="M 380 136 C 329 98 218 98 170 140 C 120 184 145 225 213 248 C 280 268 344 280 349 332 C 352 391 277 420 210 405 C 183 400 151 386 135 367" fill="none" stroke="#FFF3DB" stroke-width="77" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="348" cy="449" r="12" fill="#FFF3DB"/>
+  <circle cx="396" cy="449" r="12" fill="#FFF3DB"/>
+  <circle cx="444" cy="449" r="12" fill="#FFF3DB"/>
+</svg>

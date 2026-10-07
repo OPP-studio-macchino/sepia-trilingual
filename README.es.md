@@ -47,6 +47,10 @@ Puedes entregar un perfil explícito basado en `examples/voice-profile.example.y
 
 Sepia no busca ni carga perfiles automáticamente. El perfil solo se usa cuando el usuario lo proporciona o autoriza un archivo concreto, y nunca puede sustituir los hechos, las citas, el código, la seguridad ni la instrucción actual. La especificación está en `skills/sepia/references/voice-profile-config.md`.
 
+## Integración MCP opcional
+
+El [servidor MCP de solo lectura](sepia_mcp/README.md) ofrece las reglas existentes de Sepia. No recibe borradores ni modifica textos. ChatGPT Web requiere un extremo HTTPS remoto o un túnel seguro.
+
 ## Instalación
 
 Para Codex, después de publicar el repositorio:

@@ -17,5 +17,9 @@ jobs:
         run: python3 scripts/check_versions.py
       - name: Run upstream and multilingual unit tests
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Install optional MCP SDK for integration tests
+        run: python3 -m pip install -r sepia_mcp/requirements.txt
+      - name: Test MCP integration
+        run: python3 -m unittest discover -s tests -p 'test_mcp_server.py' -v
       - name: Check committed whitespace errors
         run: git show --check --oneline --no-renames HEAD

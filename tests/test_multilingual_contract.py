@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "sepia" / "SKILL.md"
 REFERENCES = ROOT / "skills" / "sepia" / "references"
-VERSION = "0.6.0"
+VERSION = "0.6.1"
 
 
 class MultilingualContractTests(unittest.TestCase):
@@ -103,6 +103,7 @@ class MultilingualContractTests(unittest.TestCase):
 
     def test_version_declarations_match(self) -> None:
         manifests = [
+            ROOT / "plugin.json",
             ROOT / ".claude-plugin" / "plugin.json",
             ROOT / ".codex-plugin" / "plugin.json",
         ]
@@ -115,7 +116,7 @@ class MultilingualContractTests(unittest.TestCase):
         match = re.search(r"(?m)^  version: \"([^\"]+)\"$", skill)
         self.assertIsNotNone(match, "canonical skill must declare metadata.version")
         declared.append(match.group(1))
-        self.assertEqual([VERSION, VERSION, VERSION], declared)
+        self.assertEqual([VERSION] * 4, declared)
 
     def test_plugin_names_remain_drop_in_compatible(self) -> None:
         for relative in (

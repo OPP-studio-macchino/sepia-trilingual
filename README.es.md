@@ -49,7 +49,9 @@ Sepia no busca ni carga perfiles automáticamente. El perfil solo se usa cuando 
 
 ## Integración MCP opcional
 
-El [servidor MCP de solo lectura](sepia_mcp/README.md) ofrece las reglas existentes de Sepia. No recibe borradores ni modifica textos. ChatGPT Web requiere un extremo HTTPS remoto o un túnel seguro.
+El [servidor MCP de solo lectura](sepia_mcp/README.md) ofrece las reglas existentes de Sepia. No recibe borradores ni modifica textos.
+
+El paquete para ChatGPT Web contiene solo skills, sin MCP. Consulta la [guía de instalación y requisitos de acceso (en inglés)](CHATGPT.md). La instalación y ejecución en la web todavía no se han probado.
 
 ## Instalación
 

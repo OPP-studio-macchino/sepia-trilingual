@@ -3,7 +3,7 @@ name: sepia
 description: Make AI-generated or over-polished writing read as language-native, author-preserving prose in Japanese, English, and Spanish. Repairs narrative architecture in fiction; routes professional text through venue-specific rules; preserves locale, register, dialect, facts, and the author's established voice. Four operations - write, review (diagnose without editing), refactor (minimal in-place edits), recreate (full rewrite from source facts and intent). Use when asked to humanize, de-AI, unslop, remove machine-like uniformity, preserve a writer's voice, or produce natural prose in ja-JP, English, or Spanish.
 license: MIT
 metadata:
-  version: "0.6.0"
+  version: "0.6.1"
 ---
 
 # Sepia — multilingual, voice-preserving de-AI writing

@@ -27,7 +27,7 @@ BASELINE = {
     ".claude-plugin/plugin.json": {"name": "sepia", "version": "0.4.0"},
     ".codex-plugin/plugin.json": {"name": "sepia", "version": "0.4.0"},
     ".claude-plugin/marketplace.json": {"name": "sepia", "plugins": [{"name": "sepia"}]},
-    "plugin.json": {"name": "sepia"},
+    "plugin.json": {"name": "sepia", "version": "0.4.0"},
     "skills/sepia/SKILL.md": skill_md(
         ["name: sepia", "license: MIT", "metadata:", '  version: "0.4.0"']
     ),
@@ -59,12 +59,12 @@ class CheckVersionsCase(unittest.TestCase):
     def test_agreeing_declarations_pass(self):
         code, report = self.run_check()
         self.assertEqual(code, 0)
-        self.assertIn("3 declarations, all 0.4.0", report)
+        self.assertIn("4 declarations, all 0.4.0", report)
 
     def test_undeclared_files_are_listed_not_failed(self):
         code, report = self.run_check()
         self.assertEqual(code, 0)
-        self.assertIn("plugin.json", report)
+        self.assertIn(".claude-plugin/marketplace.json", report)
         self.assertIn("(no version declared)", report)
 
     # --- disagreement -------------------------------------------------------
@@ -80,7 +80,7 @@ class CheckVersionsCase(unittest.TestCase):
     # --- the two review findings -------------------------------------------
 
     def test_removing_a_required_version_field_fails(self):
-        # Review case: delete .codex-plugin/plugin.json's version. The two
+        # Review case: delete .codex-plugin/plugin.json's version. The three
         # remaining declarations still agree, so without the required set this
         # would pass, which is exactly the silent failure being guarded.
         code, report = self.run_check(
@@ -350,7 +350,7 @@ class CheckVersionsCase(unittest.TestCase):
         content = "\ufeff" + skill_md(["name: sepia", "metadata:", '  version: "0.4.0"'])
         code, report = self.run_check({"skills/sepia/SKILL.md": content})
         self.assertEqual(code, 0)
-        self.assertIn("3 declarations, all 0.4.0", report)
+        self.assertIn("4 declarations, all 0.4.0", report)
 
     def test_a_corrupted_opening_delimiter_means_no_frontmatter(self):
         # Review round 7: ---oops is not a frontmatter opener, but prefix
@@ -379,7 +379,7 @@ class CheckVersionsCase(unittest.TestCase):
             }
         )
         self.assertEqual(code, 0)
-        self.assertIn("3 declarations, all 0.4.0", report)
+        self.assertIn("4 declarations, all 0.4.0", report)
 
     # --- review round four: whitespace, comments, unquoted scalars ----------
 
@@ -401,7 +401,7 @@ class CheckVersionsCase(unittest.TestCase):
             }
         )
         self.assertEqual(code, 0)
-        self.assertIn("3 declarations, all 0.4.0", report)
+        self.assertIn("4 declarations, all 0.4.0", report)
 
     def test_an_indented_comment_does_not_fix_the_child_indentation(self):
         # If the comment were treated as the first child, its indentation
@@ -467,7 +467,7 @@ class CheckVersionsCase(unittest.TestCase):
             path.write_text(content, encoding="utf-8")
         code, report = check_versions.run(nested)
         self.assertEqual(code, 0)
-        self.assertIn("3 declarations, all 0.4.0", report)
+        self.assertIn("4 declarations, all 0.4.0", report)
 
     # --- inline metadata is refused, not parsed (round 6) -------------------
 
@@ -503,19 +503,24 @@ class CheckVersionsCase(unittest.TestCase):
 
     # --- discovery of manifests that grow a version later -------------------
 
-    def test_root_plugin_json_growing_a_matching_version_is_counted(self):
+    def test_new_plugin_manifest_growing_a_matching_version_is_counted(self):
         code, report = self.run_check(
-            {"plugin.json": {"name": "sepia", "version": "0.4.0"}}
+            {"extra/plugin.json": {"name": "extra", "version": "0.4.0"}}
         )
         self.assertEqual(code, 0)
-        self.assertIn("4 declarations", report)
+        self.assertIn("5 declarations", report)
 
-    def test_root_plugin_json_growing_a_different_version_fails(self):
+    def test_root_plugin_json_with_a_different_version_fails(self):
         code, report = self.run_check(
             {"plugin.json": {"name": "sepia", "version": "0.5.0"}}
         )
         self.assertEqual(code, 1)
         self.assertIn("0.5.0", report)
+
+    def test_root_plugin_json_must_keep_its_version(self):
+        code, report = self.run_check({"plugin.json": {"name": "sepia"}})
+        self.assertEqual(code, 1)
+        self.assertIn("plugin.json: required to declare a version", report)
 
     def test_a_marketplace_plugins_entry_version_is_checked_by_label(self):
         code, report = self.run_check(

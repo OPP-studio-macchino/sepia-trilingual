@@ -1,6 +1,6 @@
 {
   "name": "sepia",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Voice-preserving multilingual writing package for Japanese, English, and Spanish, with the Sepia router plus write, review, refactor, and recreate entries.",
   "author": {
     "name": "O.P.P Studio — derived from Sepia by Nanako Tsai"

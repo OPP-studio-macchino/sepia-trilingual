@@ -1,4 +1,32 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "sepia",
-  "description": "Voice-preserving Japanese, English, and Spanish writing package with the general Sepia router plus write, review, refactor, and recreate entries."
+  "version": "0.6.1",
+  "description": "Voice-preserving multilingual writing package for Japanese, English, and Spanish, with the Sepia router plus write, review, refactor, and recreate entries.",
+  "author": {
+    "name": "O.P.P Studio — derived from Sepia by Nanako Tsai"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/OPP-studio-macchino/sepia-trilingual",
+  "homepage": "https://github.com/OPP-studio-macchino/sepia-trilingual",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Sepia Trilingual",
+        "shortDescription": "Keep your voice in JA/EN/ES",
+        "longDescription": "Write, review, refactor, or recreate Japanese, English, and Spanish prose while preserving facts, locale, register, and the author's Human Voice Profile. Review diagnoses without editing; refactor makes minimal edits; recreate rewrites from source facts and intent. Includes fiction and professional writing guidance. This skills-only plugin needs no Sepia server or account. It does not promise AI-detector evasion or certify human authorship. Independent derivative of Sepia by Nanako Tsai, under the MIT License.",
+        "developerName": "O.P.P Studio",
+        "category": "Productivity",
+        "capabilities": [],
+        "websiteURL": "https://github.com/OPP-studio-macchino/sepia-trilingual",
+        "defaultPrompt": [
+          "Sepiaで日本語の案内文を書いてください。必要な事実と文体を先に確認してください。",
+          "Use Sepia review to diagnose this English draft without editing it. Preserve my voice and locale.",
+          "Usa Sepia refactor para revisar este texto en español con cambios mínimos, conservando mi voz y variedad regional."
+        ],
+        "composerIcon": "./assets/sepia-user-icon-128.png",
+        "logo": "./assets/sepia-user-icon-512.png"
+      }
+    }
+  }
 }

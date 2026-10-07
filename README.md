@@ -73,11 +73,13 @@ Since v0.4.0, sepia defines an interface for stacking a voice or style skill on 
 
 The contract in short: sepia's architecture decisions come first, and the voice's moves are applied selectively (3–5 signature moves per piece, formula endings deliberately broken sometimes). Review reports the voice's known costs instead of fixing them away, while uniformity findings keep full strength: a voice does not excuse a metronome. On professional routes the venue still sets the register, and direct conflicts come back to you. The interface is grounded in one blind review experiment on a strict-minimalism specimen — a worked example, not measured evidence.
 
-**Optional MCP:** [Sepia read-only MCP bridge](sepia_mcp/README.md) serves the same JA/EN/ES rules to MCP clients. The server does not receive drafts, invoke an LLM, or edit by itself. ChatGPT Web requires a remote HTTPS endpoint or supported secure tunnel.
+**ChatGPT Web package:** Sepia has a skills-only portable plugin with the supplied brushstroke S icon. See [installation guidance, local ZIP build, and account-access blockers](CHATGPT.md). Web installation and execution have not been live tested.
+
+**Optional MCP:** [Sepia read-only MCP bridge](sepia_mcp/README.md) serves the same JA/EN/ES rules to separate MCP clients. The server does not receive drafts, invoke an LLM, or edit by itself. It is not wired into the ChatGPT skills-only plugin.
 
 ## Install
 
-Every command below is written for **user scope** — install once, use it in every project.
+The CLI commands below are written for **user scope** — install once, use it in every project. ChatGPT Web account and workspace installation are covered in [CHATGPT.md](CHATGPT.md).
 
 ### Any agent (Skills CLI, 77+ agents)
 
@@ -89,7 +91,7 @@ npx skills remove sepia -g             # uninstall
 
 Installs on every agent the [Skills CLI](https://skills.sh) supports — Cursor, Cline, Windsurf, Copilot, OpenCode, goose, and more. Pick your agents when prompted. Runtime behavior outside the four platforms below has not been exercised by us; the skill is plain markdown under the Agent Skills standard, so file an issue if your agent trips on it.
 
-The four platforms below have native plugin installers. The Codex package was installed from this repository and reported Sepia `0.6.0`; the other native installers were not rerun for this release.
+The four platforms below have native plugin installers. A previous Codex installation from this repository reported Sepia `0.6.0`. Version `0.6.1` retains the Codex compatibility manifest; native installers have not been rerun for this packaging update.
 
 ### Claude Code
 
@@ -162,7 +164,9 @@ agy plugin uninstall sepia
 
 ```text
 sepia/
-├── plugin.json              # Antigravity packaging
+├── plugin.json              # portable Agent Plugins manifest + OpenAI presentation
+├── CHATGPT.md               # Web installation guidance and local ZIP build
+├── assets/                  # supplied brushstroke S icons; optional MCP assets
 ├── skills/
 │   ├── sepia/                # canonical skill (Agent Skills standard)
 │   │   ├── SKILL.md          # routing, operations, calibration rules, guardrails
